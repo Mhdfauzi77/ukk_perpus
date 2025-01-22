@@ -32,7 +32,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +40,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pinjams()
+    {
+        return $this->hasMany(Pinjam::class);
+    }
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
+    }
 }

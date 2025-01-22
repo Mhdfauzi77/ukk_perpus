@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pinjamen', function (Blueprint $table) {
+        Schema::create('pinjams', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('buku_id')->constrained('bukus');
+            $table->date('tgl_pinjam');
+            $table->date('tgl_kembali');
+            $table->varchar('status')->default(null());
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pinjamen');
+        Schema::dropIfExists('pinjams');
     }
 };

@@ -4,11 +4,10 @@ namespace App\Models;
 use App\Models\Buku;
 use App\Models\User;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ulasan extends Model
+class Pinjams extends Model
 {
     use HasFactory;
 
@@ -19,6 +18,6 @@ class Ulasan extends Model
 
     public function buku()
     {
-        return $this->balongsTo(Bukus::class);
+        return $this->belongsTo(Buku::class);
     }
 }
